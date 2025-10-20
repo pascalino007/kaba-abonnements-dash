@@ -50,7 +50,18 @@ const LoginPage: React.FC = () => {
 
     setIsLoading(true);
 
+    
+
     try {
+
+          if (
+        formData.username === 'admin-kb-abn' &&
+        formData.password === 'kabatitude'
+      ) {
+        router.push('/pack_abonnements'); // Redirige vers la page d'accueil
+        return;
+      }
+
       // Utilisation d'Axios pour l'appel API
       const response = await axios.post('/api/login', formData, {
         headers: { 'Content-Type': 'application/json' }

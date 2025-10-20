@@ -27,7 +27,7 @@ const AbonnementsPage: React.FC = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get("http://168.231.101.119:4040/dashboard/packs");
+        const response = await axios.get("http://148.230.85.247:4040/dashboard/packs_admin");
         setAbonnements(response.data);
       } catch (err) {
         setError("Erreur lors du chargement des packs.");
@@ -43,7 +43,7 @@ const AbonnementsPage: React.FC = () => {
   // ✅ Delete handler
  const handleDelete = async (id: number) => {
   try {
-    const response = await axios.delete(`http://localhost:4040/dashboard/delete/${id}`);
+    const response = await axios.delete(`http://148.230.85.247:4040/dashboard/delete/${id}`);
 
     if (response.status === 200 || response.status === 204) {
       alert("Pack deleted successfully!");

@@ -22,7 +22,7 @@ const AbonnementsPage: React.FC = () => {
     setError(null);
     try {
       // Replace with your actual API endpoint
-      const response = await axios.get('http://168.231.101.119:4040/dashboard/abonnements');
+      const response = await axios.get('http://148.230.85.247:4040/dashboard/abonnements');
       setAbonnements(response.data);
     } catch (err) {
       setError("Erreur lors du chargement des abonnements.");

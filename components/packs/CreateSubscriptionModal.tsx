@@ -32,7 +32,7 @@ const CreateSubscriptionModal: React.FC<CreateSubscriptionModalProps> = ({
   onSubmit
 }) => {
   const [formData, setFormData] = useState<SubscriptionFormData>({
-    color : '' ,
+    color : '0xFF'+'' ,
     name: '',
     price: 0,
     deliverylimit: null,
@@ -108,13 +108,15 @@ const CreateSubscriptionModal: React.FC<CreateSubscriptionModalProps> = ({
   if (validateForm()) {
     try {
       // Replace '/api/abonnements' with your actual endpoint
-      const response = await axios.post('http://168.231.101.119:4040/dashboard/new_pack', formData);
+      const response = await axios.post('http://148.230.85.247:4040/dashboard/new_pack', formData);
       // Optionally call onSubmit to update parent state/UI
       onSubmit(response.data);
       window.location.reload();
       onClose();
+      console.log('Data sent:', formData);
     } catch (error) {
       // Handle error (show message, etc.)
+      console.log('Data sent:', formData);
       alert(error);
       console.error(error);
     }
@@ -230,7 +232,7 @@ const CreateSubscriptionModal: React.FC<CreateSubscriptionModalProps> = ({
 
               <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Color Associee (en ) *
+                Completez le Code ci dessous avec votre Code Couleur Hexadécimal * (ex: eb850b sans le #)
               </label>
               <input
                 type="text"

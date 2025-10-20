@@ -60,7 +60,7 @@ npm run dev
 
 4. **Ouvrir dans le navigateur** :
 ```
-http://localhost:3000
+http://148.230.85.247:3000
 ```
 
 ## 📁 Structure du Projet
