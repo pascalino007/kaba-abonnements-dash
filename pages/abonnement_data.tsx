@@ -22,7 +22,7 @@ const AbonnementsPage: React.FC = () => {
     setError(null);
     try {
       // Replace with your actual API endpoint
-      const response = await axios.get('kaba-abn-api.kabatitude.com/dashboard/abonnements');
+      const response = await axios.get('https://https://kaba-abn-api.kabatitude.com/dashboard/abonnements');
       setAbonnements(response.data);
     } catch (err) {
       setError("Erreur lors du chargement des abonnements.");
