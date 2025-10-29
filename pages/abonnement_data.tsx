@@ -22,7 +22,7 @@ const AbonnementsPage: React.FC = () => {
     setError(null);
     try {
       // Replace with your actual API endpoint
-      const response = await axios.get('https://https://kaba-abn-api.kabatitude.com/dashboard/abonnements');
+      const response = await axios.get('https://kaba-abn-api.kabatitude.com/dashboard/abonnements');
       setAbonnements(response.data);
     } catch (err) {
       setError("Erreur lors du chargement des abonnements.");
@@ -146,7 +146,7 @@ const AbonnementsPage: React.FC = () => {
                     </td>
                      <td className="px-6 py-4 whitespace-nowrap">
                       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                       {abonnement.subscription_id} 
+                       {abonnement.pack.name} 
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -166,7 +166,7 @@ const AbonnementsPage: React.FC = () => {
                     </td> */}
                      
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      { 0 +  ' sur '+ 15} 
+                      { 0 +  ' sur '+ abonnement.pack.deliverylimit} 
                     </td>
                     
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
