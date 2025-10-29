@@ -27,7 +27,7 @@ const AbonnementsPage: React.FC = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get("https://https://kaba-abn-api.kabatitude.com/dashboard/packs_admin");
+        const response = await axios.get("https://kaba-abn-api.kabatitude.com/dashboard/packs_admin");
         setAbonnements(response.data);
       } catch (err) {
         setError("Erreur lors du chargement des packs.");
