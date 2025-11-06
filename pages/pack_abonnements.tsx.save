@@ -43,7 +43,7 @@ const AbonnementsPage: React.FC = () => {
   // ✅ Delete handler
  const handleDelete = async (id: number) => {
   try {
-    const response = await axios.delete(`http://localhost:4040/dashboard/delete/${id}`);
+    const response = await axios.delete(`https://kaba-abn-api.kabatitude.com/dashboard/delete/${id}`);
 
     if (response.status === 200 || response.status === 204) {
       alert("Pack deleted successfully!");
