@@ -36,7 +36,7 @@ const EditSubscriptionModal: React.FC<EditSubscriptionModalProps> = ({
 
     try {
       const response = await axios.patch(
-        `https://kaba-abn-api.kabatitude.com/dashboard/update/`,
+        `http://localhost:4040/dashboard/update/`,
         {
           ...form,
           price: Number(form.price),

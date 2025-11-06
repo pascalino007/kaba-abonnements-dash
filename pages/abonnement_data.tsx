@@ -22,7 +22,7 @@ const AbonnementsPage: React.FC = () => {
     setError(null);
     try {
       // Replace with your actual API endpoint
-      const response = await axios.get('https://kaba-abn-api.kabatitude.com/dashboard/abonnements');
+      const response = await axios.get('http://localhost:4040/dashboard/abonnements');
       setAbonnements(response.data);
     } catch (err) {
       setError("Erreur lors du chargement des abonnements.");
@@ -151,11 +151,11 @@ const AbonnementsPage: React.FC = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        abonnement.status_payement == 1 
+                        abonnement.status_abonnement == 1 
                           ? 'bg-green-100 text-green-800' 
                           : 'bg-red-100 text-red-800'
                       }`}>
-                        {abonnement.status_payement == 1 ? 'Actif' : 'Pending'}
+                        {abonnement.status_abonnement == 1 ? 'Actif' : 'Pending'}
                       </span>
                     </td>
                     {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -166,7 +166,7 @@ const AbonnementsPage: React.FC = () => {
                     </td> */}
                      
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      { 0 +  ' sur '+ abonnement.pack.deliverylimit} 
+                      { abonnement.alreadyUsed +  ' sur '+ abonnement.pack.deliverylimit} 
                     </td>
                     
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -182,7 +182,7 @@ const AbonnementsPage: React.FC = () => {
                       {abonnement.payement_method}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {'  1 / 3'}
+                      {abonnement.usershared+' / '+abonnement.pack.max_shared_users}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex items-center space-x-2">

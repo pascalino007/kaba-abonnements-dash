@@ -27,7 +27,7 @@ const AbonnementsPage: React.FC = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get("https://kaba-abn-api.kabatitude.com/dashboard/packs_admin");
+        const response = await axios.get("http://localhost:4040/dashboard/packs_admin");
         setAbonnements(response.data);
       } catch (err) {
         setError("Erreur lors du chargement des packs.");
@@ -43,7 +43,7 @@ const AbonnementsPage: React.FC = () => {
   // ✅ Delete handler
  const handleDelete = async (id: number) => {
   try {
-    const response = await axios.delete(`https://kaba-abn-api.kabatitude.com/dashboard/delete/${id}`);
+    const response = await axios.delete(`http://localhost:4040/dashboard/delete/${id}`);
 
     if (response.status === 200 || response.status === 204) {
       alert("Pack deleted successfully!");
@@ -114,10 +114,10 @@ const AbonnementsPage: React.FC = () => {
           <th className="px-6 py-4 text-left font-semibold">Min. Commande</th>
           <th className="px-6 py-4 text-left font-semibold">Durée</th>
           <th className="px-6 py-4 text-left font-semibold">Partage</th>
+          <th className="px-6 py-4 text-left font-semibold">Code Pack</th>
           <th className="px-6 py-4 text-left font-semibold">Réduction</th>
-              <th className="px-6 py-4 text-left font-semibold">Avantages</th>
-            <th className="px-6 py-4 text-left font-semibold"> Code Pack </th> 
-         <th className="px-6 py-4 text-left font-semibold text-center">Actions</th>
+          <th className="px-6 py-4 text-left font-semibold">Avantages</th>
+          <th className="px-6 py-4 text-left font-semibold text-center">Actions</th>
         </tr>
       </thead>
 
@@ -155,9 +155,9 @@ const AbonnementsPage: React.FC = () => {
               <td className="px-6 py-4">{abonnement.min_order_amount || "—"}</td>
               <td className="px-6 py-4">{abonnement.duration_days ? abonnement.duration_days + " jrs" : "—"}</td>
               <td className="px-6 py-4">{abonnement.is_shareable ? "Oui" : "Non"}</td>
+               <td className="px-6 py-4">{abonnement.code !="#00000" ? abonnement.code  : "---"}</td>
               <td className="px-6 py-4">{abonnement.discount_on_order > 0 ? abonnement.discount_on_order + "%" : "—"}</td>
               <td className="px-6 py-4">{abonnement.other_benefits || "—"}</td>
-              <td className="px-6 py-4">{abonnement.code ==='#00000'?'___' : abonnement.code }</td>
 
               {/* Action buttons */}
               <td className="px-6 py-4 text-center">

@@ -77,7 +77,7 @@ useEffect(() => {
   const fetchStats = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('/api/statistiques', { params: { debut: periode.debut, fin: periode.fin } });
+      const res = await axios.get('http://localhost:4040/dashboard/history', { params: { debut: periode.debut, fin: periode.fin } });
       setStats(res.data);
     } catch (error) {
       // Vous pouvez afficher une notification ou un message d'erreur ici si besoin

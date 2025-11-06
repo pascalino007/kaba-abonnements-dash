@@ -108,7 +108,7 @@ const CreateSubscriptionModal: React.FC<CreateSubscriptionModalProps> = ({
   if (validateForm()) {
     try {
       // Replace '/api/abonnements' with your actual endpoint
-      const response = await axios.post('https://kaba-abn-api.kabatitude.com/dashboard/new_pack', formData);
+      const response = await axios.post('http://localhost:4040/dashboard/new_pack', formData);
       // Optionally call onSubmit to update parent state/UI
       onSubmit(response.data);
       window.location.reload();
